@@ -1,11 +1,16 @@
 import React from 'react'
-import { NavLinks } from '../constants';
-import {useGsap} from '@gsap/react';
+import { navLinks } from '../constants';
+
 import gsap from 'gsap';
+
+import { useGSAP } from "@gsap/react"
 
 function NavBar() {
 
-    useGsap(()=>{
+
+    gsap.registerPlugin(useGSAP);
+
+    useGSAP(()=>{
         const navTeens = gsap.timeline({
             scrollTrigger:{
                 trigger: "nav",
@@ -30,7 +35,7 @@ function NavBar() {
                 <p>Velvet Pour</p>
             </a>
             <ul>
-                { NavLinks.map((link) => (
+                { navLinks.map((link) => (
                     <li key={link.link}>
                         <a href={`#${link.link}`}>
                             { link.title }
